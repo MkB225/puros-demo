@@ -1,1 +1,892 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>PUROS — Profesjonalne czyszczenie</title>
+
+  <meta
+    name="description"
+    content="PUROS — profesjonalne pranie tapicerki meblowej i samochodowej."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0d0f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 13, 15, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #272c31;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: #d8ff3e;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: #c7ccd1;
+    }
+
+    .menu a:hover {
+      color: #d8ff3e;
+    }
+
+    .nav-button {
+      background: #d8ff3e;
+      color: #0b0d0f;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 25%, rgba(216,255,62,.16), transparent 30%),
+        linear-gradient(135deg, #0b0d0f, #15191d);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .small-title {
+      color: #d8ff3e;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 90px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 19px;
+      color: #aeb5bb;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 10px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .button-main {
+      background: #d8ff3e;
+      color: #0b0d0f;
+    }
+
+    .button-main:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border: 1px solid #454c53;
+      color: white;
+    }
+
+    .button-outline:hover {
+      border-color: #d8ff3e;
+      color: #d8ff3e;
+    }
+
+    .features {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+      color: #c4c9cd;
+      font-size: 14px;
+    }
+
+    .features span::first-letter {
+      color: #d8ff3e;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 95px 0;
+      border-top: 1px solid #24292e;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: #9ea6ad;
+      margin-bottom: 40px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background: #14181c;
+      border: 1px solid #282e34;
+      border-radius: 18px;
+      padding: 30px;
+      transition: .2s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: #d8ff3e;
+    }
+
+    .service-icon {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #9ea6ad;
+    }
+
+    /* BEFORE AFTER */
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .photo {
+      height: 330px;
+      border-radius: 18px;
+      display: flex;
+      align-items: end;
+      padding: 25px;
+      font-size: 28px;
+      font-weight: 900;
+      border: 1px solid #30363c;
+      background:
+        linear-gradient(135deg, #383d42, #181b1f);
+    }
+
+    .photo.after {
+      background:
+        linear-gradient(135deg, #65704d, #22271d);
+    }
+
+    /* PRICING */
+
+    .prices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price {
+      background: #14181c;
+      border: 1px solid #282e34;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .price strong {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #d8ff3e;
+    }
+
+    .price h3 {
+      margin-bottom: 8px;
+    }
+
+    .price p {
+      color: #9ea6ad;
+    }
+
+    /* REVIEWS */
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review {
+      background: #14181c;
+      border: 1px solid #282e34;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .stars {
+      color: #d8ff3e;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .review p {
+      color: #c3c8cc;
+      margin-bottom: 20px;
+    }
+
+    .review strong {
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(216,255,62,.12), transparent 45%),
+        #0f1215;
+    }
+
+    .cta h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #a7afb5;
+      margin-bottom: 30px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-info,
+    .contact-form {
+      background: #14181c;
+      border: 1px solid #282e34;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #282e34;
+      color: #c3c8cc;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: #0d1013;
+      border: 1px solid #343a40;
+      color: white;
+      padding: 14px;
+      border-radius: 9px;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #d8ff3e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #24292e;
+      padding: 30px 0;
+      color: #777f86;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .services,
+      .prices,
+      .reviews,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 250px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .nav-button {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="container nav">
+
+    <div class="logo">
+      PU<span>R</span>OS
+    </div>
+
+    <div class="menu">
+      <a href="#uslugi">Usługi</a>
+      <a href="#efekty">Realizacje</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <!-- PODMIEŃ NUMER -->
+    <a class="nav-button" href="tel:+48000000000">
+      Zadzwoń
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        Profesjonalne czyszczenie
+      </div>
+
+      <h1>
+        TWOJA TAPICERKA.<br>
+        JAK NOWA.
+      </h1>
+
+      <p>
+        Profesjonalne pranie tapicerki meblowej i samochodowej,
+        czyszczenie dywanów oraz wykładzin.
+      </p>
+
+      <div class="buttons">
+
+        <a class="button button-main" href="#kontakt">
+          UMÓW CZYSZCZENIE
+        </a>
+
+        <a class="button button-outline" href="#efekty">
+          ZOBACZ EFEKTY
+        </a>
+
+      </div>
+
+      <div class="features">
+        <span>✓ Profesjonalny sprzęt</span>
+        <span>✓ Szybka wycena</span>
+        <span>✓ Dojazd do klienta</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- SERVICES -->
+
+<section id="uslugi">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      CO MOŻEMY WYCZYŚCIĆ?
+    </h2>
+
+    <p class="section-description">
+      Kompleksowe czyszczenie powierzchni w domu,
+      samochodzie i firmie.
+    </p>
+
+    <div class="services">
+
+      <div class="service">
+
+        <div class="service-icon">🛋️</div>
+
+        <h3>
+          Tapicerka meblowa
+        </h3>
+
+        <p>
+          Kanapy, narożniki, fotele, krzesła
+          oraz inne meble tapicerowane.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">🚗</div>
+
+        <h3>
+          Tapicerka samochodowa
+        </h3>
+
+        <p>
+          Dokładne czyszczenie i odświeżanie
+          wnętrza samochodu.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-icon">🧼</div>
+
+        <h3>
+          Dywany i wykładziny
+        </h3>
+
+        <p>
+          Profesjonalne czyszczenie i odświeżanie
+          dywanów oraz wykładzin.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BEFORE AFTER -->
+
+<section id="efekty">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      RÓŻNICĘ WIDAĆ OD RAZU.
+    </h2>
+
+    <p class="section-description">
+      W tej sekcji możemy później umieścić prawdziwe
+      zdjęcia realizacji PUROS.
+    </p>
+
+    <div class="before-after">
+
+      <div class="photo">
+        PRZED
+      </div>
+
+      <div class="photo after">
+        PO ✨
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="cennik">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      SZYBKA WYCENA
+    </h2>
+
+    <p class="section-description">
+      Cena usługi zależy od rodzaju powierzchni,
+      jej wielkości oraz stopnia zabrudzenia.
+    </p>
+
+    <div class="prices">
+
+      <div class="price">
+
+        <strong>OD 150 ZŁ</strong>
+
+        <h3>
+          Podstawowe czyszczenie
+        </h3>
+
+        <p>
+          Przykładowa cena demonstracyjna.
+          Do podmiany na aktualny cennik firmy.
+        </p>
+
+      </div>
+
+
+      <div class="price">
+
+        <strong>WYCENA</strong>
+
+        <h3>
+          Większe realizacje
+        </h3>
+
+        <p>
+          Indywidualna wycena większych
+          powierzchni i kompleksowych usług.
+        </p>
+
+      </div>
+
+
+      <div class="price">
+
+        <strong>NAPISZ</strong>
+
+        <h3>
+          Wyślij zdjęcie
+        </h3>
+
+        <p>
+          Wyślij zdjęcie zabrudzenia,
+          a łatwiej będzie przygotować wycenę.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section id="opinie">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      KLIENCI O PUROS
+    </h2>
+
+    <p class="section-description">
+      Tutaj wstawimy prawdziwe opinie klientów
+      po uzyskaniu zgody firmy.
+    </p>
+
+    <div class="reviews">
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          „Bardzo dokładne czyszczenie.
+          Kanapa wygląda jak nowa.”
+        </p>
+
+        <strong>
+          — Klient
+        </strong>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          „Szybko, dokładnie i bezproblemowo.
+          Polecam.”
+        </p>
+
+        <strong>
+          — Klient
+        </strong>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          „Jestem bardzo zadowolony z efektu.”
+        </p>
+
+        <strong>
+          — Klient
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>
+      TWOJA TAPICERKA<br>
+      POTRZEBUJE ODŚWIEŻENIA?
+    </h2>
+
+    <p>
+      Wyślij zdjęcie i zapytaj o wycenę.
+    </p>
+
+    <a class="button button-main" href="#kontakt">
+      CHCĘ WYCENĘ
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="kontakt">
+
+  <div class="container">
+
+    <div class="contact">
+
+      <div class="contact-info">
+
+        <h3>
+          PUROS
+        </h3>
+
+        <div class="contact-item">
+          📍 Swarzędz i okolice
+        </div>
+
+        <div class="contact-item">
+          📞 +48 XXX XXX XXX
+        </div>
+
+        <div class="contact-item">
+          ✉️ kontakt@puros.pl
+        </div>
+
+        <div class="contact-item">
+          ⏱️ Zapytaj o najbliższy termin
+        </div>
+
+      </div>
+
+
+      <div class="contact-form">
+
+        <h3>
+          NAPISZ DO NAS
+        </h3>
+
+        <form onsubmit="sendMessage(event)">
+
+          <input
+            type="text"
+            placeholder="Imię"
+            required
+          >
+
+          <input
+            type="tel"
+            placeholder="Telefon"
+            required
+          >
+
+          <textarea
+            placeholder="Co chcesz wyczyścić?"
+            required
+          ></textarea>
+
+          <button
+            class="button button-main"
+            type="submit"
+            style="border:0; cursor:pointer; width:100%;"
+          >
+            WYŚLIJ ZAPYTANIE
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    Projekt demonstracyjny przygotowany jako propozycja
+    strony internetowej dla PUROS.
+
+  </div>
+
+</footer>
+
+
+<script>
+
+function sendMessage(event) {
+
+  event.preventDefault();
+
+  alert(
+    "Dziękujemy! Formularz demonstracyjny — po wdrożeniu podłączymy go do prawdziwego maila lub telefonu."
+  );
+
+}
+
+</script>
+
+</body>
+</html>
